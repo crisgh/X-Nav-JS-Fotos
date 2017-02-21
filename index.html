@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+   <head>
+     <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+     <title>Ejercicio 5.5.7</title>
+
+          <!-- podemos poner el script en la parte de arriba ya que luego se ejecutara despues de haberse cargado el DOM por completo,
+               en el caso de que queramos ejecutarlo siempre mejor tenemos que volver a declarar el script para que estando en el ambito se ejecute-->
+          <script type="text/javascript" charset="utf-8"> // Aqui declaramos la primera vez la funcion
+          var images = [
+            'http://2.bp.blogspot.com/_MwCq_6Q7mU8/SacDPtCOJGI/AAAAAAAAFK4/L7EgLMdfmdE/s400/00f_cutecatm_8846c59.png',
+            'https://s-media-cache-ak0.pinimg.com/736x/9a/4d/86/9a4d86e6231d98451616a4c3cd5d5664.jpg',
+            'http://www.hdfondos.eu/pictures/2013/0220/1/kittens-feline-babies-face-eyes-pov-cats-cute-wallpaper-221569.jpg',
+            'http://www.nocturnar.com/imagenes/gatos-bebes-03.jpg',
+            'https://www.mundogato.net/wp-content/uploads/gato-bebe-1000x600.jpg'
+           /* aunque este fuera con el Clouser ve esta variable*/
+          ]
+          function image(){
+            element = document.getElementById("foto");
+            urlimage = images[Math.floor(Math.random()*images.length)]
+            element.innerHTML = '<img src="' + urlimage + '">';
+          };
+          image(); // para que se pueda ejecutar necesita todo el parsin del html, ejecuta pero en el depurador las variables estan a 'null'
+          </script>
+   </head>
+   <body>
+     <h1> Mostrar imagenes aleatorias</h1>
+     <p>¿Quieres ver algunas fotos? <a href="javascript:image()">Picha aqui</a></p> <!-- funciona como una funcion , cuando pique ejecuta el programa js -->
+     <div id="foto"></div>
+       <script type="text/javascript" charset="utf-8">
+       image(); // va a buscar la funcion en el ambito mas externo ,es la llamada a la funcion
+       </script>
+   </body>
+  </html>
